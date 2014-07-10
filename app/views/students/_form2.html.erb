@@ -1,9 +1,20 @@
-<%= @student.name %>
+Name: <%= @student.name %>
 <br>
-<%= @student.university_id %>
+University: <%= @student.university_id %>
+<br>
+Grades:
+<br>
 
-<%= form_for @student do |f| %>
+	<% @student.grades.each do |s| %>
+		
 
-	
+		Name: <%= s.name %>
+		<br>
+		Score: <%= s.score %>
+		<br>
+		Subject: <%= s.subject_id %>
+		<br>
 
-<% end %>
+	<% end %>
+
+<br>

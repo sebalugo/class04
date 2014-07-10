@@ -1,4 +1,6 @@
 class Student < ActiveRecord::Base
+
+	validates_presence_of :name
 	has_many :grades
 	accepts_nested_attributes_for :grades
 
