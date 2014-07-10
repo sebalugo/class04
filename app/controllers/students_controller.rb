@@ -4,7 +4,8 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.sort_by{|s| s.name}
+    
   end
 
   # GET /students/1
@@ -15,6 +16,7 @@ class StudentsController < ApplicationController
   # GET /students/new
   def new
     @student = Student.new
+    @student.grades.build
   end
 
   # GET /students/1/edit
@@ -25,6 +27,8 @@ class StudentsController < ApplicationController
   # POST /students.json
   def create
     @student = Student.new(student_params)
+    @student.grades.build
+    
 
     respond_to do |format|
       if @student.save
@@ -69,6 +73,7 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:name, :university_id)
+      params.require(:student).permit(:name, :university_id , :test , grades_attributes: [:name , :score , :subject_id])
     end
+    
 end

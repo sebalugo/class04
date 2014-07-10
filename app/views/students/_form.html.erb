@@ -19,6 +19,23 @@
     <%= f.label :university_id %><br>
     <%= f.number_field :university_id %>
   </div>
+
+  <%= f.fields_for :grades do |g1| %>
+    Grade #1 Name: <%= g1.text_field :name %> Score: <%= g1.text_field :score %> SubjectID: <%= g1.text_field :subject_id%>
+  <% end %>
+  <br>
+   <%= f.fields_for :grades do |g2| %>
+    Grade #2 Name: <%= g2.text_field :name %> Score: <%= g2.text_field :score %> SubjectID: <%= g2.text_field :subject_id%>
+  <% end %>
+    <br>
+   <%= f.fields_for :grades do |g3| %>
+    Grade #3 Name: <%= g3.text_field :name %> Score: <%= g3.text_field :score %> SubjectID: <%= g3.text_field :subject_id%>
+  <% end %>
+  <br>
+     <%= f.fields_for :grades do |g4| %>
+    Grade #1 Name: <%= g4.text_field :name %> Score: <%= g4.text_field :score %> SubjectID: <%= g4.text_field :subject_id%>
+  <% end %>
+
   <div class="actions">
     <%= f.submit %>
   </div>
